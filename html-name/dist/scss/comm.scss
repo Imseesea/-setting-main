@@ -6,8 +6,13 @@
 
 // 공통
 .container {
-    padding: 0 4%;
+    padding: 0 $bothMargin;
 }
+.bg-gray {
+    background: $gray-e;
+}
+
+// header
 #header {
     border-bottom: 1px solid $b;
     .inner {
@@ -70,4 +75,92 @@
     #gnb {
         display: none;
     }
+}
+
+// main
+.section-g {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.section-tit {
+    font-size: 20px;
+    color: &b;
+    // 컬러지정색변경할때만컬러값입력
+}
+.section-contents {
+    margin-top: 20px;
+}
+.section-news {
+    .a {
+    }
+    .b {
+    }
+}
+.section-shopping {
+    .lst-shopping {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        li {
+            width: calc(50% - $spacingList / 2);
+            margin-bottom: $spacingList;
+            .thumb-shopping {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 200px;
+                border-radius: 4px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: inherit;
+                    border: 1px solid rgba($b, 0.06);
+                    background: rgba($b, 0.03);
+            }
+            
+            }
+            img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             object-position: 0 50%;
+             transition: transform .0.3s;
+            }
+        }
+        a {
+         &:hover {
+            img {
+                transform: scale(1.5);
+            }
+         }   
+        }
+        .txt-shopping {
+            margin-top: 10px;
+            .txt-shopping__tit {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 14px;
+                color: $titDefult;
+            }
+            .txt-shopping__desc {
+                font-size: 12px;
+            }
+        }
+    }
+}
+.section-feed {
+    .a {
+    }
+    .b {
+    }
+}
+
+// footer
+#footer {
+    margin-bottom: 200px;
+    border-top: 1px solid $b;
 }
