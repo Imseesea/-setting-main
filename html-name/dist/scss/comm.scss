@@ -5,6 +5,9 @@
 // 공통요소 : 헤더, 풋터, 버튼, 아이콘, 박스
 
 // 공통
+.wrap {
+    padding-top: 70px;
+}
 .container {
     padding: 0 $bothMargin;
 }
@@ -14,9 +17,14 @@
 
 // header
 #header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     border-bottom: 1px solid $b;
+    background: rgba($w, 0.5);
+    
     .inner {
         display: flex;
         align-items: center;
@@ -101,6 +109,7 @@
         flex-direction: column;
         width: 40px;
         height: $headerHeight;
+        cursor: pointer;
         .bar {
             display: block;
             width: 26px;
@@ -128,7 +137,39 @@
        transition: all 0.3s;
     }
 }
+// slide
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
 
+  .swiper-slide {
+    height: 100vh;
+    text-align: center;
+    font-size: 18px;
+    background: #b7e0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($b, 0.2);
+    }
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
 // main
 .section-g {
     padding-top: 30px;
@@ -142,75 +183,69 @@
 .section-contents {
     margin-top: 20px;
 }
-.section-news {
-    .a {
-    }
-    .b {
-    }
-}
-.section-shopping {
-    .lst-shopping {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        li {
-            width: calc(50% - $spacingList / 2);
-            margin-bottom: $spacingList;
-            .thumb-shopping {
-                position: relative;
-                overflow: hidden;
-                width: 100%;
-                border-radius: 4px;
-                &::before {
-                    content: "";
-                    display: block;
-                    height: 0;
-                    padding-top: 100%;
-                }
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    border-radius: inherit;
-                    border: 1px solid rgba($b, 0.06);
-                    background: rgba($b, 0.03);
-                }
-            
+
+// 이미지 게시판
+.lst-thumb-two-column {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+        width: calc(50% - $spacingList / 2);
+        margin-bottom: $spacingList;
+        .thumb-shopping {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 4px;
+            &::before {
+                content: "";
+                display: block;
+                height: 0;
+                padding-top: 100%;
             }
-            img {
+            &::after {
+                content: "";
                 position: absolute;
                 top: 0;
                 left: 0;
                 right: 0;
                 bottom: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: 0 50%;
-                transition: transform .0.3s;
+                border-radius: inherit;
+                border: 1px solid rgba($b, 0.06);
+                background: rgba($b, 0.03);
             }
+        
         }
-        a {
-         &:hover {
-            img {
-                transform: scale(1.5);
-            }
-         }   
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0 50%;
+            transition: transform .0.3s;
         }
-        .txt-shopping {
-            margin-top: 10px;
-            .txt-shopping__tit {
-                display: block;
-                margin-bottom: 5px;
-                font-size: 14px;
-                color: $titDefult;
-            }
-            .txt-shopping__desc {
-                font-size: 12px;
-            }
+    }
+    a {
+     &:hover {
+        img {
+            transform: scale(1.5);
+        }
+     }   
+    }
+    .txt-shopping {
+        margin-top: 10px;
+        .txt-shopping__tit {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: $titDefult;
+        }
+        .txt-shopping__desc {
+            font-size: 12px;
         }
     }
 }
